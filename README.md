@@ -23,7 +23,7 @@ npm run dev
 
 `npm test` currently: 73 passing (domain, MCP scenario against local Wrangler, security, hygiene). Playwright board harness: NOT RUN.
 
-Local worker: `npm run dev` then POST to `http://127.0.0.1:8787/mcp`. Claude custom connectors cannot use localhost; they need a public HTTPS URL on port 443.
+Local worker: `npm run dev` then POST to `http://127.0.0.1:8787/mcp`. How the tools and workspaces fit together, and how to click them in MCP Inspector without Claude: [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md). Claude custom connectors cannot use localhost; they need a public HTTPS URL on port 443.
 
 ## Limits
 

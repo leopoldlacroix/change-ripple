@@ -3,6 +3,8 @@
 Updated: 2026-11-25.
 
 ## Done
+- `docs/HOW-IT-WORKS.md`: MCP/workspace/tool map and Inspector walkthrough (no Claude required).
+
 - Product lives at `change-ripple/` inside the private input folder. Git is only in this folder.
 - Domain logic: duration mentions, checks (all fixture cases), impact, state machine, release.
 - Worker: 9 MCP tools, SQLite Durable Objects, limiter, static pages, board HTML resource.
