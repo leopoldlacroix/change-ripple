@@ -18,16 +18,16 @@ Updated: 2026-11-25.
 - Production Worker: https://change-ripple.leola.workers.dev — healthz 200, `/` `/docs` `/privacy` `/terms` `/icon.svg` 200, MCP initialize + tools/list (9 tools). Connector: `https://change-ripple.leola.workers.dev/mcp`.
 
 ## Next
-- Human: add https://change-ripple.leola.workers.dev/mcp as a Claude custom connector (no sign-in), enable it in a chat, run DEMO-PROMPTS (H1).
+- After this deploy: new Claude chat, prompt 1. Confirm the tool text starts with `Workspace ID ws_…`. Then prompts 2–3 when not rate-limited.
 - Playwright UI harness (T4) — NOT RUN.
 - Invite collaborators (repo is private) or make it public.
 
 ## Blocked
-- Claude rendering, tool visibility, and `_meta` handling: NOT VERIFIED until H1.
+- Claude iframe, app-only hiding, and `_meta`: NOT VERIFIED (rate limit).
 
 ## Human action needed
-1. In Claude: Customize → Connectors → Add custom connector → `https://change-ripple.leola.workers.dev/mcp`, no sign-in. Enable it in a new chat. Paste prompt 1 from `docs/DEMO-PROMPTS.md`.
-2. Report whether the board renders, whether decision tools are hidden from the model, and whether `_meta.reviewToken` stays off-screen.
+1. Wait out the Claude rate limit. New chat, connector on, prompt 1. The first tool result must show `Workspace ID`.
+2. Optional: iframe / hide-decision-tools / `_meta` check if the board appears.
 
 ## Not verified
 - Full production scenario replay (T5) beyond healthz, static pages, and MCP initialize.

@@ -19,13 +19,15 @@ It reads and writes only its own demo sandboxes. It does not reach your files, a
 | Decision and edit tools (board only) | Ask each time (not verified in Claude yet) |
 
 ## Check it works
-Prompt 1 shows a grid with 20 of 24 assets affected. `get_release_status` must still be `NO_OPEN_CHANGE`.
+Prompt 1 shows a grid with 20 of 24 assets affected. `get_release_status` must still be `NO_OPEN_CHANGE`. The first tool result text starts with `Workspace ID ws_…` — that ID is required for every later call.
 
 ## Troubleshooting
 - No interface: confirm the connector is on in this chat; try web or desktop.
+- Claude cannot see the workspace ID: it is in the tool **text** (starts with `Workspace ID`). Do not start extra sandboxes to hunt for it. Wait if you hit a rate limit.
 - Workspace not found: it expired or the ID is wrong; start a new demo.
 - Board outdated: ask Claude to open the review board again.
 - Capacity message: the daily demo limit was reached; it resets at 00:00 UTC.
+- Rate limit: wait and continue in the same chat with the existing ID; do not create more workspaces.
 
 ## Remove
 Customize > Connectors (Owners: organization settings) > Remove. Sandbox data expires by itself.

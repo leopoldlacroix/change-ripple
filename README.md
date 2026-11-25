@@ -9,7 +9,9 @@
 
 ## Where the human stays
 
-Claude proposes. A person approves, edits or rejects one version at a time in the board. Failed checks block approval; changed text cancels it. **Approvals are simulated:** there is no sign-in, so the app cannot prove who decided. Whether Claude hides the decision tools from the model is **not verified** (needs a public connector in Claude).
+Claude proposes. A person approves, edits or rejects one version at a time in the board. Failed checks block approval; changed text cancels it. **Approvals are simulated:** there is no sign-in, so the app cannot prove who decided.
+
+Observed in Claude on 2026-11-25: the connector connected and created a sandbox, but the model could not see `workspaceId` because it was only in structured data (then a rate limit stopped a retry). Tool **text** now starts with `Workspace ID`. Whether Claude hides decision tools, renders the board iframe, or keeps `_meta` off-screen is still **not verified**.
 
 ## What it does
 
@@ -60,6 +62,6 @@ Use the printed `*.workers.dev` origin plus `/mcp` as the connector URL. Details
 
 ## How this was built
 
-Time spent: not measured as a single clock. AI agents: Cursor agents wrote most of the implementation and docs. Verified: local Worker plus production `https://change-ripple.leola.workers.dev` (healthz, static pages, MCP initialize and tools/list). Not verified: full production scenario, Claude iframe / tool visibility / `_meta`, Playwright board harness, confidential-term scan.
+Time spent: not measured as a single clock. AI agents: Cursor agents wrote most of the implementation and docs. Verified: local Worker plus production `https://change-ripple.leola.workers.dev` (healthz, static pages, MCP initialize and tools/list). Partial Claude check: connector connected; workspaceId was missing from visible text (fixed). Not verified: full production scenario, Claude iframe / tool visibility / `_meta`, Playwright board harness, confidential-term scan.
 
 All brand data is fictional. No affiliation with any real company using a similar name.

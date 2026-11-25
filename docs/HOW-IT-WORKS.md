@@ -48,7 +48,7 @@ A **client** (Inspector, Cursor, our Vitest tests) is not the Worker. It only se
 
 Every later tool takes `workspaceId` except `start_demo_workspace`. If the ID is unknown or expired, you get `WORKSPACE_NOT_FOUND` and nothing is stored.
 
-Copy the `workspaceId` out of the first tool result and paste it into every following call.
+The first tool's **text** starts with `Workspace ID ws_…` (also in `structuredContent`). Copy that ID into every following call. Do not create a second sandbox to recover it.
 
 ## Tools
 
@@ -104,7 +104,7 @@ Open the printed URL (keep the token in the query string). Transport: Streamable
 
 Call `start_demo_workspace` with `{}`.
 
-Copy `structuredContent.workspaceId`. Example shape: `ws_AbCdEfGhIjKlMnOpQrStuv`.
+Copy the `Workspace ID` from the tool text. Example shape: `ws_AbCdEfGhIjKlMnOpQrStuv`.
 
 ### 2. Preview, do not open a change yet
 

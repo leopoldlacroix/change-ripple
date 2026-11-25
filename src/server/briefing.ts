@@ -4,7 +4,7 @@ export const SERVER_INSTRUCTIONS = `Change Ripple is a demo MCP server for Maiso
 Initial state after start_demo_workspace:
 - One product (Aube Dew Cream), one campaign, one claim hydration_duration currently 48 hours. The only approved new value is 24 (not 72).
 - 6 markets (FR, DE, ES, IT, GB, US) × 4 channels = 24 assets. Statuses start unaffected. No change is open (get_release_status = NO_OPEN_CHANGE).
-- workspaceId (ws_ + 22 chars) is a bearer key; reuse it. Sandbox expires in 7 days. Fictional data only.
+- workspaceId (ws_ + 22 chars) is a bearer key; reuse it. start_demo_workspace puts "Workspace ID ws_…" in the text (not only in structured data). Repeat that ID; do not start another sandbox to recover it. Sandbox expires in 7 days. Fictional data only.
 
 Expected flow (do not skip the dry run):
 1. preview_claim_change 48→24: 20 of 24 affected; 2 found only by text scan (ES-email_subject, US-marketplace_bullet); 4 unaffected, including a GB post that says "48 ml" (volume, not a duration). Preview must not open a change.

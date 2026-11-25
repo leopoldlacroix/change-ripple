@@ -87,6 +87,7 @@ describe("MCP integration", () => {
     const sc = start.structuredContent as { workspaceId: string; assetCount: number };
     expect(sc.assetCount).toBe(24);
     const ws = sc.workspaceId;
+    expect(textOf(start)).toContain(`Workspace ID ${ws}`);
 
     const preview = await callTool(client, "preview_claim_change", {
       workspaceId: ws,

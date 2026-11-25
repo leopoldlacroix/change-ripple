@@ -6,6 +6,11 @@ import type { ImpactResult } from "../domain/impact.js";
 import type { ReleaseState } from "../domain/workspace.js";
 import { baselineText, currentMeta, currentText, charCountOf } from "../domain/workspace.js";
 
+/** Put the ID in the visible text. Claude may not show structuredContent. */
+export function withWorkspaceId(workspaceId: string, text: string): string {
+  return `${text} workspaceId ${workspaceId}.`;
+}
+
 export function findingsCodes(f: Findings): { blocking: string[]; warnings: string[] } {
   return {
     blocking: f.blocking.map((x) => x.code),

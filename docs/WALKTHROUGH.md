@@ -18,7 +18,7 @@ User text (from DEMO-PROMPTS): start a demo, claim 48 → 24 hours, show impact,
 
 | Order | Tool | Why |
 |---|---|---|
-| 1 | `start_demo_workspace` `{}` | One sandbox of Maison Aube. Remember `workspaceId`. Skip if you already have one in this chat. |
+| 1 | `start_demo_workspace` `{}` | One sandbox of Maison Aube. The **text** starts with `Workspace ID`. Skip if you already have one in this chat. |
 | 2 | `preview_claim_change` `{ workspaceId, claimId: "hydration_duration", newValue: 24 }` | Read-only map of who would be hit. |
 | 3 | `get_release_status` `{ workspaceId }` | Must still be `NO_OPEN_CHANGE`. That proves preview did not open a change. |
 

@@ -31,6 +31,7 @@ import {
   formatReleaseText,
   formatSaveText,
   historyOf,
+  withWorkspaceId,
 } from "./format.js";
 import { BOARD_HTML } from "./board.generated.js";
 import { BRIEFING_URI, SERVER_INSTRUCTIONS } from "./briefing.js";
@@ -119,7 +120,7 @@ export function buildMcp(env: Env): McpServer {
         const seed = (await requireWorkspace(env, created.workspaceId, "get")) as WorkspaceState;
         const claim = seed.seed.claims[0]!;
         return ok(
-          `Demo workspace ready. ${seed.assets.length} assets. Claim ${claim.id} is ${claim.currentValue} hours. Fictional data only; expires ${created.expiresAt}.`,
+          `Workspace ID ${created.workspaceId}. Demo ready. ${seed.assets.length} assets. Claim ${claim.id} is ${claim.currentValue} hours. Reuse this ID in every later call. Fictional data only; expires ${created.expiresAt}.`,
           {
             workspaceId: created.workspaceId,
             expiresAt: created.expiresAt,
@@ -159,7 +160,7 @@ export function buildMcp(env: Env): McpServer {
           claimId: args.claimId,
           newValue: args.newValue,
         })) as ImpactResult;
-        return ok(formatImpactText(impact), {
+        return ok(withWorkspaceId(args.workspaceId, formatImpactText(impact)), {
           view: "impact",
           from: impact.from,
           to: impact.to,
@@ -190,7 +191,7 @@ export function buildMcp(env: Env): McpServer {
           claimId: args.claimId,
           newValue: args.newValue,
         })) as { alreadyOpen: boolean; impact: ImpactResult };
-        return ok(formatOpenText(opened.impact, opened.alreadyOpen), {
+        return ok(withWorkspaceId(args.workspaceId, formatOpenText(opened.impact, opened.alreadyOpen)), {
           alreadyOpen: opened.alreadyOpen,
           affectedCount: opened.impact.affectedCount,
           affectedByMarket: opened.impact.affectedByMarket,
@@ -237,7 +238,7 @@ export function buildMcp(env: Env): McpServer {
             rejectionReason: asset.rejectionReason,
           };
         });
-        return ok(formatBriefText(change, packed.items), {
+        return ok(withWorkspaceId(args.workspaceId, formatBriefText(change, packed.items)), {
           claim: { from: change.fromValue, to: change.toValue },
           assets,
         });
@@ -280,7 +281,7 @@ export function buildMcp(env: Env): McpServer {
             error?: string;
           }>;
         };
-        return ok(formatSaveText(saved.results), { results: saved.results });
+        return ok(withWorkspaceId(args.workspaceId, formatSaveText(saved.results)), { results: saved.results });
       } catch (err) {
         return fail(err);
       }
@@ -306,7 +307,7 @@ export function buildMcp(env: Env): McpServer {
         })) as { state: WorkspaceState; items: AssetState[] };
         const change = packed.state.change;
         const items = packed.items.map((a) => boardItem(packed.state, a));
-        const text = formatBoardText(packed.items, change);
+        const text = withWorkspaceId(args.workspaceId, formatBoardText(packed.items, change));
         return ok(
           text,
           {
@@ -351,7 +352,7 @@ export function buildMcp(env: Env): McpServer {
           };
         };
         const rel = packed.release;
-        return ok(formatReleaseText(rel), {
+        return ok(withWorkspaceId(args.workspaceId, formatReleaseText(rel)), {
           view: "release",
           workspaceId: args.workspaceId,
           state: rel.state,
@@ -393,7 +394,10 @@ export function buildMcp(env: Env): McpServer {
           approvalCancelled: boolean;
         };
         return ok(
-          `Saved reviewer edit for ${result.assetId} as version ${result.version}, status ${result.status}.`,
+          withWorkspaceId(
+            args.workspaceId,
+            `Saved reviewer edit for ${result.assetId} as version ${result.version}, status ${result.status}.`,
+          ),
           result,
         );
       } catch (err) {
@@ -430,7 +434,10 @@ export function buildMcp(env: Env): McpServer {
           release: { state: ReleaseState; counts: Counts };
         };
         return ok(
-          `Recorded ${result.decision} for ${result.assetId} version ${result.version}. Release ${result.release.state}.`,
+          withWorkspaceId(
+            args.workspaceId,
+            `Recorded ${result.decision} for ${result.assetId} version ${result.version}. Release ${result.release.state}.`,
+          ),
           {
             assetId: result.assetId,
             version: result.version,

@@ -15,6 +15,11 @@
 - **Choice:** Keep `@modelcontextprotocol/ext-apps@2.0.4`, `@modelcontextprotocol/server@2.4.0`, `@modelcontextprotocol/client@2.4.0`, `wrangler@4.168.0`. Pin `zod@4.6.7` (latest 4.x). Pin `typescript@5.9.3` rather than TypeScript 7.
 - **Why:** MCP and Wrangler versions still match the architecture note. `typescript-eslint@8.74.0` declares `typescript >=4.8.4 <6.1.0`. Workers types current on this date: `@cloudflare/workers-types@5.20261125.1`. ESLint pinned at 10.15.0 (not 10.0.1) so `npm audit` is clean of the minimatch advisory in that line.
 
+## 2026-11-25 — workspaceId in tool text
+- **Problem:** In Claude, start_demo_workspace succeeded but the model could not see the `ws_…` ID. It was only in structuredContent. Rate limit then blocked a second create.
+- **Choice:** Put `Workspace ID …` first in the start text, and append `workspaceId …` on every later tool's text result.
+- **Why:** Spec 03 says content must work with no UI. Claude did not surface structuredContent. The review token stays in `_meta` only.
+
 ## 2026-11-25 — Agent briefing on connect
 - **Problem:** A new MCP client (Cursor, Inspector, another agent) could list tools without knowing the seed, the dry-run rule, or what “good” looks like.
 - **Choice:** Put that briefing in MCP initialize `instructions` and as resource `docs://change-ripple/briefing.md`. Cursor rules point at the same story.

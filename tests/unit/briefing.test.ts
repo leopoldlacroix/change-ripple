@@ -8,6 +8,7 @@ describe("MCP initialize briefing", () => {
     expect(SERVER_INSTRUCTIONS).toMatch(/48 hours/);
     expect(SERVER_INSTRUCTIONS).toMatch(/\b24\b/);
     expect(SERVER_INSTRUCTIONS).toMatch(/24 assets/);
+    expect(SERVER_INSTRUCTIONS).toMatch(/Workspace ID/);
     expect(SERVER_INSTRUCTIONS).toMatch(/NO_OPEN_CHANGE/);
     expect(SERVER_INSTRUCTIONS).toMatch(/20 of 24/);
     expect(SERVER_INSTRUCTIONS).toMatch(/ES-email_subject/);
