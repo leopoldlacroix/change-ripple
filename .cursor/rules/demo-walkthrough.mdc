@@ -3,12 +3,14 @@ description: How to demo Change Ripple tools and explain each step to the user
 alwaysApply: true
 ---
 
-# Change Ripple demo
+# Change Ripple
 
-Keep `npm run dev` running (`http://127.0.0.1:8787/mcp`). Reuse one `workspaceId`; do not call `start_demo_workspace` unless the user wants a fresh sandbox.
+Demo MCP for **Maison Aube** (fictional). Claim `hydration_duration` is **48 hours**; only approved new value is **24**. After `start_demo_workspace`: 24 assets, no change open (`NO_OPEN_CHANGE`). Reuse one `workspaceId`. Keep `npm run dev` on `http://127.0.0.1:8787/mcp`.
 
-When the user pastes a demo prompt or asks to try the connector, follow `docs/WALKTHROUGH.md`: call the listed tools, then **narrate in plain language** (counts, asset names, what changed vs what did not). Do not dump raw JSON. Never claim legal compliance.
+On MCP connect, read server **instructions** (also `docs://change-ripple/briefing.md`). Then follow `docs/WALKTHROUGH.md` for the three prompts in `docs/DEMO-PROMPTS.md`.
 
-Cursor lists `submit_decision` and `save_reviewer_edit`. Use them here only when the user is testing the board flow. In Claude they are meant to be app-only.
+Expected: (1) preview 20/24 affected, still no change; (2) open, bad DE draft fails `MISSING_DISCLAIMER`, good draft `pending_review`, one approve + one reject; (3) release `BLOCKED` until all 20 affected are approved.
 
-After meaningful work, commit in `change-ripple/` (this folder is the only git repo).
+Narrate counts and names. Do not dump JSON. Never claim legal compliance. Do not create a workspace every turn. Local clients list `submit_decision` — use it only when testing review.
+
+After meaningful work, commit in this folder (the only git repo).

@@ -4,6 +4,8 @@ Use this when driving Change Ripple with a user (Cursor, Inspector, or Claude). 
 
 Keep `npm run dev` running. Endpoint: `http://127.0.0.1:8787/mcp`. Cursor loads that URL from `.cursor/mcp.json`. If tools are missing, the Worker is down or the MCP server is disabled in Cursor Settings.
 
+On first MCP connect, the server already sent **instructions** (product, initial seed, expected flow). If you did not see them, read resource `docs://change-ripple/briefing.md`.
+
 **Reuse one workspace.** Copy `workspaceId` from the first `start_demo_workspace` result and pass it to every later call. Do not create a new sandbox per message.
 
 After each tool, speak in counts and names. Example: “20 of 24 assets would change; nothing is stored yet.” Do not paste JSON unless asked. Never say the copy is legally compliant.

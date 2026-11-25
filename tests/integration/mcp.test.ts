@@ -70,6 +70,17 @@ describe("MCP integration", () => {
     expect(String(res.contents[0]?.mimeType ?? "")).toContain("text/html");
   });
 
+  it("exposes a briefing resource matching initialize instructions", async () => {
+    const listed = await client.listResources();
+    const uris = listed.resources.map((r) => r.uri);
+    expect(uris).toContain("docs://change-ripple/briefing.md");
+    const res = await client.readResource({ uri: "docs://change-ripple/briefing.md" });
+    const text = res.contents[0] && "text" in res.contents[0] ? res.contents[0].text : "";
+    expect(text).toContain("NO_OPEN_CHANGE");
+    expect(text).toContain("20 of 24");
+    expect(text).toContain("MISSING_DISCLAIMER");
+  });
+
   it("replays the integration scenario", async () => {
     const start = await callTool(client, "start_demo_workspace");
     expect(start.isError).toBeFalsy();

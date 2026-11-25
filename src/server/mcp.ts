@@ -33,6 +33,7 @@ import {
   historyOf,
 } from "./format.js";
 import { BOARD_HTML } from "./board.generated.js";
+import { BRIEFING_URI, SERVER_INSTRUCTIONS } from "./briefing.js";
 import { createWorkspace, RpcError, requireWorkspace } from "./rpc.js";
 
 const RO = { readOnlyHint: true, openWorldHint: false } as const;
@@ -58,7 +59,24 @@ function fail(err: unknown) {
 }
 
 export function buildMcp(env: Env): McpServer {
-  const s = new McpServer({ name: SERVER_NAME, version: SERVER_VERSION });
+  const s = new McpServer(
+    { name: SERVER_NAME, version: SERVER_VERSION },
+    { instructions: SERVER_INSTRUCTIONS },
+  );
+
+  s.registerResource(
+    "briefing",
+    BRIEFING_URI,
+    {
+      title: "Change Ripple briefing",
+      description:
+        "Product, initial Maison Aube seed, and the expected preview → draft → review flow. Same text as MCP initialize instructions.",
+      mimeType: "text/markdown",
+    },
+    async (uri) => ({
+      contents: [{ uri: uri.href, mimeType: "text/markdown", text: SERVER_INSTRUCTIONS }],
+    }),
+  );
 
   registerAppResource(
     s,

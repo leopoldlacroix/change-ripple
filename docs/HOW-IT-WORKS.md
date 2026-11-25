@@ -2,7 +2,7 @@
 
 This is the map of the running app: what MCP is here, what a workspace is, what each tool does, and how to drive it with a local MCP client (no Claude account required).
 
-Keep `npm run dev` running. Endpoint: `http://127.0.0.1:8787/mcp`.
+Keep `npm run dev` running. Endpoint: `http://127.0.0.1:8787/mcp`. Clone-and-run for another machine: [DEV.md](DEV.md).
 
 ## The pieces, in this repo
 
@@ -11,7 +11,7 @@ Keep `npm run dev` running. Endpoint: `http://127.0.0.1:8787/mcp`.
 | **Worker / HTTP server** | A Cloudflare Worker. Ordinary pages (`/`, `/docs`, `/privacy`) plus one MCP endpoint. | `src/server/index.ts` |
 | **MCP server** | The JSON-RPC app behind `POST /mcp`. Name `change-ripple`. Lists tools and one UI resource. | `src/server/mcp.ts` |
 | **Tool** | A named function the client can call (`start_demo_workspace`, `save_drafts`, …). | same |
-| **Resource** | A fetchable document. We have one: the review board HTML. | `ui://change-ripple/board.html` |
+| **Resource** | Fetchable documents. Review board HTML, plus a briefing for connecting agents. | `ui://change-ripple/board.html`, `docs://change-ripple/briefing.md` |
 | **App / board** | That HTML, bundled from `src/ui/`. Claude would show it in an iframe. Inspector shows it as a resource you can read, not as a live Claude widget. | `src/ui/main.ts` |
 | **Workspace** | One isolated sandbox of the Maison Aube sample. ID like `ws_…`. Anyone holding the ID can use it. Expires after 7 days. | Durable Object `WorkspaceDO` |
 | **Limiter** | Caps how many workspaces can be created per UTC day (500 in production, overridable). | `LimiterDO` |
@@ -34,7 +34,7 @@ flowchart LR
   mcp --> board
 ```
 
-A **client** (Inspector, Cursor, our Vitest tests) is not the Worker. It only sends `tools/list`, `tools/call`, `resources/read`.
+A **client** (Inspector, Cursor, our Vitest tests) is not the Worker. It only sends `initialize`, `tools/list`, `tools/call`, `resources/read`. On `initialize`, the server sends **instructions** (same text as `docs://change-ripple/briefing.md`): product, seed, expected flow.
 
 ## Workspace
 

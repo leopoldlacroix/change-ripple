@@ -3,22 +3,22 @@
 - **Name:** Change Ripple
 - **One-liner (<=200 chars):** When a product claim changes, find affected market copy, check redrafts against brand rules, and review each version before release. Demo with fictional data.
 - **Description (<=2,000 chars):** Change Ripple helps content and local-market teams handle a product claim change. It shows which assets are affected, including mentions nobody tagged, stores redrafts Claude proposes, runs repeatable checks (claim value, length, required footnote, banned phrases, markup), and displays a review board where a person approves, edits or rejects one version at a time. A release view shows what is blocked, waiting or approved. This demo uses a fictional skincare brand. Approvals are simulated because there is no sign-in. Checks do not assess meaning, translation quality or legal compliance. Enter fictional data only; sandboxes expire after 7 days.
-- **Categories (1-5):** {{CHOOSE_FROM_PORTAL}}
+- **Categories (1-5):** not submitted to a directory
 - **Slug:** change-ripple-demo
 - **Icon:** docs/assets/icon.svg
-- **Documentation:** {{DOCS_URL}}
-- **Privacy:** {{PRIVACY_URL}}
-- **Support:** {{SUPPORT_CONTACT}}
-- **Company / contact:** {{PUBLISHER}}
+- **Documentation:** /docs on the Worker (not deployed yet)
+- **Privacy:** /privacy on the Worker (not deployed yet)
+- **Support:** open an issue on this repository
+- **Company / contact:** repository owner
 - **Use cases:** assess a claim change; redraft and check market copy; review and track release readiness.
 - **Prerequisites:** a Claude plan that can add this custom connector; interactive display support for review.
 - **Reads/writes:** both, only in a demo sandbox.
 - **Authentication:** none. A production version acting on company data would need OAuth 2.0.
-- **MCP server URL:** {{MCP_URL}}
+- **MCP server URL:** not deployed yet
 - **Data handling:** own server on Cloudflare; sample data plus text saved to the sandbox; deleted after 7 days; no health data; no sponsored content; the server calls no AI model.
 - **External links:** none.
 - **Reviewer test setup:** no account. Add the URL and run the three prompts; the first creates a populated sandbox.
-- **Screenshots:** {{3_TO_5_PNGS_WITH_PROMPTS}}
+- **Screenshots:** none yet (need Claude H2)
 
 ## Tools
 | Tool (title) | Reads | Changes | Annotation | Who calls |
