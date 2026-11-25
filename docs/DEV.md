@@ -10,8 +10,11 @@ For developers. Claude users add a public HTTPS `/mcp` URL instead; see [INSTALL
 
 ## Install and check
 
+The GitHub repo is **private**. You need an invite, or HTTPS with a token the owner gave you.
+
 ```bash
-git clone <this-repo-url>
+git clone git@github.com:leopoldlacroix/change-ripple.git
+# or: git clone https://github.com/leopoldlacroix/change-ripple.git
 cd change-ripple
 npm install
 npm test

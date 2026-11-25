@@ -20,7 +20,7 @@ Updated: 2026-11-25.
 - Enable the **change-ripple** MCP server in Cursor Settings if tools are not listed, then run DEMO-PROMPTS with the agent.
 - Playwright UI harness (T4) — NOT RUN.
 - Cloudflare login and deploy, then in-Claude check (H1).
-- Push `main` to a GitHub remote named `change-ripple` (human: `gh` login if needed).
+- Human: invite collaborators (repo is private) or make it public; `npx wrangler login` then `npm run deploy`.
 
 ## Blocked
 - Deploy needs `npx wrangler login` (or `CLOUDFLARE_API_TOKEN` in the environment). Not needed for local tests.

@@ -5,7 +5,7 @@
 **Job:** when a product claim changes, find the affected copy, redraft it in Claude, and get each version reviewed before release.
 **Why it is worth their time:** Claude can already rewrite copy. Change Ripple keeps the list of what must change (including untagged mentions), runs the same rule checks every time, keeps status between conversations, and ties each decision to the exact text reviewed. Time saved has not been measured.
 
-**Connector URL:** not deployed yet. · [Install (Claude)](docs/INSTALL.md) · [Run locally](docs/DEV.md) · [Three prompts](docs/DEMO-PROMPTS.md) · [Listing](docs/LISTING.md)
+**Connector URL:** not deployed yet. · **Repo:** https://github.com/leopoldlacroix/change-ripple · [Install (Claude)](docs/INSTALL.md) · [Run locally](docs/DEV.md) · [Three prompts](docs/DEMO-PROMPTS.md) · [Listing](docs/LISTING.md)
 
 ## Where the human stays
 
