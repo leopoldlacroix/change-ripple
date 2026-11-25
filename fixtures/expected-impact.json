@@ -1,0 +1,69 @@
+{
+  "claimId": "hydration_duration",
+  "from": 48,
+  "to": 24,
+  "totalAssets": 24,
+  "affectedCount": 20,
+  "affected": [
+    "FR-product_page",
+    "FR-social_post",
+    "FR-marketplace_bullet",
+    "DE-product_page",
+    "DE-email_subject",
+    "DE-marketplace_bullet",
+    "ES-product_page",
+    "ES-social_post",
+    "ES-email_subject",
+    "ES-marketplace_bullet",
+    "IT-product_page",
+    "IT-social_post",
+    "IT-marketplace_bullet",
+    "GB-product_page",
+    "GB-email_subject",
+    "GB-marketplace_bullet",
+    "US-product_page",
+    "US-social_post",
+    "US-email_subject",
+    "US-marketplace_bullet"
+  ],
+  "detectedBy": {
+    "tag": [
+      "FR-product_page",
+      "FR-social_post",
+      "FR-marketplace_bullet",
+      "DE-product_page",
+      "DE-email_subject",
+      "DE-marketplace_bullet",
+      "ES-product_page",
+      "ES-social_post",
+      "ES-marketplace_bullet",
+      "IT-product_page",
+      "IT-social_post",
+      "IT-marketplace_bullet",
+      "GB-product_page",
+      "GB-email_subject",
+      "GB-marketplace_bullet",
+      "US-product_page",
+      "US-social_post",
+      "US-email_subject"
+    ],
+    "textScanOnly": [
+      "ES-email_subject",
+      "US-marketplace_bullet"
+    ]
+  },
+  "unaffected": [
+    "DE-social_post",
+    "FR-email_subject",
+    "GB-social_post",
+    "IT-email_subject"
+  ],
+  "affectedByMarket": {
+    "FR": 3,
+    "DE": 3,
+    "ES": 4,
+    "IT": 3,
+    "GB": 3,
+    "US": 4
+  }
+}

@@ -1,0 +1,238 @@
+{
+ "note": "Integration replay. $ws = id from step 1, $token = _meta.reviewToken from the latest open_review_board. Drafts come from demo-drafts.json. For board actions, the runner takes version and textHash from a board result for that asset, fetching one if needed.",
+ "steps": [
+  {
+   "id": 1,
+   "call": "start_demo_workspace",
+   "expect": {
+    "assetCount": 24
+   }
+  },
+  {
+   "id": 2,
+   "call": "preview_claim_change",
+   "args": {
+    "claimId": "hydration_duration",
+    "newValue": 24
+   },
+   "expect": {
+    "affectedCount": 20,
+    "totalAssets": 24
+   }
+  },
+  {
+   "id": 3,
+   "call": "get_release_status",
+   "expect": {
+    "state": "NO_OPEN_CHANGE"
+   },
+   "why": "preview changed nothing"
+  },
+  {
+   "id": 4,
+   "call": "preview_claim_change",
+   "args": {
+    "claimId": "hydration_duration",
+    "newValue": 72
+   },
+   "expectError": "VALUE_NOT_APPROVED"
+  },
+  {
+   "id": 5,
+   "call": "open_change",
+   "args": {
+    "claimId": "hydration_duration",
+    "newValue": 24
+   },
+   "expect": {
+    "affectedCount": 20,
+    "alreadyOpen": false,
+    "affectedByMarket": {
+     "FR": 3,
+     "DE": 3,
+     "ES": 4,
+     "IT": 3,
+     "GB": 3,
+     "US": 4
+    }
+   }
+  },
+  {
+   "id": 6,
+   "call": "open_change",
+   "args": {
+    "claimId": "hydration_duration",
+    "newValue": 24
+   },
+   "expect": {
+    "alreadyOpen": true
+   }
+  },
+  {
+   "id": 7,
+   "call": "save_drafts",
+   "use": "badAgencyDraft",
+   "expect": {
+    "assetId": "DE-product_page",
+    "version": 2,
+    "status": "draft_failed",
+    "blocking": [
+     "MISSING_DISCLAIMER"
+    ]
+   }
+  },
+  {
+   "id": 8,
+   "call": "save_drafts",
+   "use": "goodDraftsAt24 for markets FR, DE, ES (10 drafts)",
+   "expect": {
+    "pendingReview": 10,
+    "DE-product_page.version": 3
+   }
+  },
+  {
+   "id": 9,
+   "call": "save_drafts",
+   "use": "unaffected asset GB-social_post",
+   "expectItemError": "NOT_AFFECTED"
+  },
+  {
+   "id": 10,
+   "call": "get_release_status",
+   "expect": {
+    "state": "BLOCKED",
+    "counts": {
+     "stale": 10,
+     "pending_review": 10,
+     "approved": 0,
+     "rejected": 0,
+     "draft_failed": 0,
+     "unaffected": 4
+    }
+   }
+  },
+  {
+   "id": 11,
+   "call": "open_review_board",
+   "args": {
+    "marketIds": [
+     "DE"
+    ]
+   },
+   "expect": {
+    "items": 3,
+    "hasReviewToken": true
+   }
+  },
+  {
+   "id": 12,
+   "call": "submit_decision",
+   "args": "approve DE-product_page version 2 (old)",
+   "expectError": "STALE_VERSION"
+  },
+  {
+   "id": "12b",
+   "call": "open_review_board",
+   "args": {
+    "marketIds": [
+     "FR"
+    ]
+   },
+   "expect": {
+    "items": 3,
+    "hasReviewToken": true
+   },
+   "why": "get current FR version and hash"
+  },
+  {
+   "id": 13,
+   "call": "submit_decision",
+   "args": "approve FR-product_page current, wrong token",
+   "expectError": "INVALID_REVIEW_TOKEN"
+  },
+  {
+   "id": 14,
+   "call": "submit_decision",
+   "args": "approve FR-product_page current",
+   "expect": {
+    "status": "approved"
+   }
+  },
+  {
+   "id": 15,
+   "call": "submit_decision",
+   "args": "reject DE-marketplace_bullet without reason",
+   "expectError": "REASON_REQUIRED"
+  },
+  {
+   "id": 16,
+   "call": "submit_decision",
+   "args": "reject DE-marketplace_bullet, reason 'Tone is too stiff'",
+   "expect": {
+    "status": "rejected"
+   }
+  },
+  {
+   "id": 17,
+   "call": "get_release_status",
+   "expect": {
+    "state": "BLOCKED",
+    "counts": {
+     "stale": 10,
+     "pending_review": 8,
+     "approved": 1,
+     "rejected": 1,
+     "draft_failed": 0,
+     "unaffected": 4
+    }
+   }
+  },
+  {
+   "id": 18,
+   "call": "save_reviewer_edit",
+   "args": "FR-product_page, append ' Nouveau.' (stays within rules)",
+   "expect": {
+    "status": "pending_review",
+    "approvalCancelled": true
+   }
+  },
+  {
+   "id": 19,
+   "call": "save_drafts",
+   "use": "remaining 10 goodDraftsAt24, plus DE-marketplace_bullet with its good draft text preceded by 'Neu: ' ",
+   "expect": {
+    "allStatus": "pending_review"
+   }
+  },
+  {
+   "id": 20,
+   "call": "get_release_status",
+   "expect": {
+    "state": "WAITING",
+    "counts": {
+     "stale": 0,
+     "pending_review": 20,
+     "approved": 0,
+     "rejected": 0,
+     "draft_failed": 0,
+     "unaffected": 4
+    }
+   }
+  },
+  {
+   "id": 21,
+   "call": "submit_decision",
+   "args": "approve each of the 20 current versions, one call each",
+   "expect": {
+    "allStatus": "approved"
+   }
+  },
+  {
+   "id": 22,
+   "call": "get_release_status",
+   "expect": {
+    "state": "READY"
+   }
+  }
+ ]
+}

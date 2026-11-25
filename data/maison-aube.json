@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "notice": "Maison Aube, its product, claims, studies, markets rules and copy are fictional demo data. Not legal or regulatory guidance.",
+  "brand": {
+    "id": "maison-aube",
+    "name": "Maison Aube",
+    "product": "Aube Dew Cream"
+  },
+  "campaign": {
+    "id": "morning-ritual",
+    "name": "Morning Ritual (fictional)"
+  },
+  "claims": [
+    {
+      "id": "hydration_duration",
+      "label": "Hydration duration",
+      "unit": "hours",
+      "currentValue": 48,
+      "currentEvidenceId": "DEMO-STUDY-A",
+      "approvedValues": [
+        {
+          "value": 24,
+          "evidenceId": "DEMO-STUDY-B",
+          "note": "Fictional updated substantiation supplied by the brand's claims owner."
+        }
+      ]
+    }
+  ],
+  "markets": [
+    {
+      "id": "FR",
+      "name": "France",
+      "locale": "fr-FR",
+      "reviewerRole": "France market lead",
+      "bannedPhrases": [
+        "toute la journée",
+        "prouvé cliniquement",
+        "cliniquement prouvé",
+        "approuvé par les dermatologues",
+        "guérit"
+      ],
+      "disclaimer": "*Test instrumental."
+    },
+    {
+      "id": "DE",
+      "name": "Germany",
+      "locale": "de-DE",
+      "reviewerRole": "Germany market lead",
+      "bannedPhrases": [
+        "den ganzen Tag",
+        "klinisch bewiesen",
+        "von Dermatologen empfohlen",
+        "heilt"
+      ],
+      "disclaimer": "*Instrumenteller Test."
+    },
+    {
+      "id": "ES",
+      "name": "Spain",
+      "locale": "es-ES",
+      "reviewerRole": "Spain market lead",
+      "bannedPhrases": [
+        "todo el día",
+        "clínicamente probado",
+        "aprobado por dermatólogos",
+        "cura"
+      ],
+      "disclaimer": "*Test instrumental."
+    },
+    {
+      "id": "IT",
+      "name": "Italy",
+      "locale": "it-IT",
+      "reviewerRole": "Italy market lead",
+      "bannedPhrases": [
+        "tutto il giorno",
+        "clinicamente provato",
+        "approvato dai dermatologi",
+        "guarisce"
+      ],
+      "disclaimer": "*Test strumentale."
+    },
+    {
+      "id": "GB",
+      "name": "United Kingdom",
+      "locale": "en-GB",
+      "reviewerRole": "UK market lead",
+      "bannedPhrases": [
+        "all day",
+        "clinically proven",
+        "dermatologist approved",
+        "heals",
+        "24/7"
+      ],
+      "disclaimer": "*Instrumental test."
+    },
+    {
+      "id": "US",
+      "name": "United States",
+      "locale": "en-US",
+      "reviewerRole": "US market lead",
+      "bannedPhrases": [
+        "all day",
+        "clinically proven",
+        "dermatologist approved",
+        "heals",
+        "24/7"
+      ],
+      "disclaimer": "*Based on instrumental testing."
+    }
+  ],
+  "channels": [
+    {
+      "id": "product_page",
+      "name": "Product page",
+      "maxChars": 300,
+      "requiresDisclaimer": true
+    },
+    {
+      "id": "social_post",
+      "name": "Social post",
+      "maxChars": 150,
+      "requiresDisclaimer": true
+    },
+    {
+      "id": "email_subject",
+      "name": "Email subject",
+      "maxChars": 60,
+      "requiresDisclaimer": false
+    },
+    {
+      "id": "marketplace_bullet",
+      "name": "Marketplace bullet",
+      "maxChars": 120,
+      "requiresDisclaimer": true
+    }
+  ],
+  "assets": [
+    {
+      "id": "FR-product_page",
+      "marketId": "FR",
+      "channelId": "product_page",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Aube Dew Cream hydrate la peau pendant 48 h*. Une texture légère pour le quotidien. *Test instrumental."
+    },
+    {
+      "id": "FR-social_post",
+      "marketId": "FR",
+      "channelId": "social_post",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Votre peau, hydratée pendant 48 h* avec Aube Dew Cream. *Test instrumental."
+    },
+    {
+      "id": "FR-email_subject",
+      "marketId": "FR",
+      "channelId": "email_subject",
+      "claimRefs": [],
+      "text": "Découvrez le rituel du matin Maison Aube"
+    },
+    {
+      "id": "FR-marketplace_bullet",
+      "marketId": "FR",
+      "channelId": "marketplace_bullet",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Hydratation 48 h* à la texture légère. *Test instrumental."
+    },
+    {
+      "id": "DE-product_page",
+      "marketId": "DE",
+      "channelId": "product_page",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Aube Dew Cream spendet der Haut 48 Stunden* Feuchtigkeit. Leichte Textur für jeden Tag. *Instrumenteller Test."
+    },
+    {
+      "id": "DE-social_post",
+      "marketId": "DE",
+      "channelId": "social_post",
+      "claimRefs": [],
+      "text": "Dein Morgenritual beginnt mit Aube Dew Cream."
+    },
+    {
+      "id": "DE-email_subject",
+      "marketId": "DE",
+      "channelId": "email_subject",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "48-Stunden-Feuchtigkeit für deine Haut"
+    },
+    {
+      "id": "DE-marketplace_bullet",
+      "marketId": "DE",
+      "channelId": "marketplace_bullet",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "48-Stunden-Feuchtigkeit* mit leichter Textur. *Instrumenteller Test."
+    },
+    {
+      "id": "ES-product_page",
+      "marketId": "ES",
+      "channelId": "product_page",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Aube Dew Cream hidrata la piel durante 48 horas*. Textura ligera para cada día. *Test instrumental."
+    },
+    {
+      "id": "ES-social_post",
+      "marketId": "ES",
+      "channelId": "social_post",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "48 h* de hidratación para tu piel con Aube Dew Cream. *Test instrumental."
+    },
+    {
+      "id": "ES-email_subject",
+      "marketId": "ES",
+      "channelId": "email_subject",
+      "claimRefs": [],
+      "text": "Tu piel hidratada durante 48 horas"
+    },
+    {
+      "id": "ES-marketplace_bullet",
+      "marketId": "ES",
+      "channelId": "marketplace_bullet",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Hidratación 48 h* con textura ligera. *Test instrumental."
+    },
+    {
+      "id": "IT-product_page",
+      "marketId": "IT",
+      "channelId": "product_page",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Aube Dew Cream idrata la pelle per 48 ore*. Una texture leggera per ogni giorno. *Test strumentale."
+    },
+    {
+      "id": "IT-social_post",
+      "marketId": "IT",
+      "channelId": "social_post",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "48 ore* di idratazione con Aube Dew Cream. *Test strumentale."
+    },
+    {
+      "id": "IT-email_subject",
+      "marketId": "IT",
+      "channelId": "email_subject",
+      "claimRefs": [],
+      "text": "Scopri il rituale del mattino Maison Aube"
+    },
+    {
+      "id": "IT-marketplace_bullet",
+      "marketId": "IT",
+      "channelId": "marketplace_bullet",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Idratazione 48 h* dalla texture leggera. *Test strumentale."
+    },
+    {
+      "id": "GB-product_page",
+      "marketId": "GB",
+      "channelId": "product_page",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Aube Dew Cream hydrates skin for 48 hours*. A lightweight texture for every day. *Instrumental test."
+    },
+    {
+      "id": "GB-social_post",
+      "marketId": "GB",
+      "channelId": "social_post",
+      "claimRefs": [],
+      "text": "Now in a 48 ml travel size: Aube Dew Cream."
+    },
+    {
+      "id": "GB-email_subject",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "48-hour hydration for your skin"
+    },
+    {
+      "id": "GB-marketplace_bullet",
+      "marketId": "GB",
+      "channelId": "marketplace_bullet",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "48-hour hydration* with a lightweight feel. *Instrumental test."
+    },
+    {
+      "id": "US-product_page",
+      "marketId": "US",
+      "channelId": "product_page",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Aube Dew Cream hydrates skin for 48 hours*. A lightweight feel for every day. *Based on instrumental testing."
+    },
+    {
+      "id": "US-social_post",
+      "marketId": "US",
+      "channelId": "social_post",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Meet your 48hr* hydration step: Aube Dew Cream. *Based on instrumental testing."
+    },
+    {
+      "id": "US-email_subject",
+      "marketId": "US",
+      "channelId": "email_subject",
+      "claimRefs": [
+        "hydration_duration"
+      ],
+      "text": "Hydration that lasts 48 hours"
+    },
+    {
+      "id": "US-marketplace_bullet",
+      "marketId": "US",
+      "channelId": "marketplace_bullet",
+      "claimRefs": [],
+      "text": "Hydrates for 48 hrs* with a lightweight feel. *Based on instrumental testing."
+    }
+  ]
+}

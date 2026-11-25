@@ -1,0 +1,527 @@
+{
+  "claim": "hydration_duration",
+  "cases": [
+    {
+      "id": "OK-01",
+      "marketId": "GB",
+      "channelId": "product_page",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydrates for 24 hours*. *Instrumental test.",
+      "expectBlocking": [],
+      "expectWarnings": [],
+      "why": "valid"
+    },
+    {
+      "id": "VAL-01",
+      "marketId": "GB",
+      "channelId": "product_page",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydrates for 48 hours*. *Instrumental test.",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "old value"
+    },
+    {
+      "id": "VAL-02",
+      "marketId": "DE",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "48-Stunden-Feuchtigkeit",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "German compound"
+    },
+    {
+      "id": "VAL-03",
+      "marketId": "DE",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Die 48-stündige Pflege",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "German adjective"
+    },
+    {
+      "id": "VAL-04",
+      "marketId": "US",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Your 48HR hydration",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "upper case, no space"
+    },
+    {
+      "id": "VAL-05",
+      "marketId": "FR",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydratation 48 h",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "non-breaking space"
+    },
+    {
+      "id": "VAL-06",
+      "marketId": "FR",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydratation 48 heures",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "narrow non-breaking space"
+    },
+    {
+      "id": "VAL-07",
+      "marketId": "IT",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Idratazione per 48 ore",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "Italian"
+    },
+    {
+      "id": "VAL-08",
+      "marketId": "ES",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hidratación 48 horas",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "Spanish"
+    },
+    {
+      "id": "VAL-09",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydration for 24–48h",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "range ending in wrong value"
+    },
+    {
+      "id": "VAL-10",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydration for 72 hours",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "invented stronger claim"
+    },
+    {
+      "id": "VAL-11",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "New 48 ml size",
+      "expectBlocking": [],
+      "expectWarnings": [
+        "CLAIM_NOT_MENTIONED"
+      ],
+      "why": "48 without a time unit"
+    },
+    {
+      "id": "VAL-12",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Since 1948, our morning ritual",
+      "expectBlocking": [],
+      "expectWarnings": [
+        "CLAIM_NOT_MENTIONED"
+      ],
+      "why": "year"
+    },
+    {
+      "id": "VAL-13",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": false,
+      "text": "New 48 ml size",
+      "expectBlocking": [],
+      "expectWarnings": [],
+      "why": "unaffected asset: no warning"
+    },
+    {
+      "id": "VAL-14",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydration: 48–hour care",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "en dash separator"
+    },
+    {
+      "id": "VAL-15",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydration for 48.5 hours",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "decimal value"
+    },
+    {
+      "id": "VAL-16",
+      "marketId": "FR",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydratation 24,5 h",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "decimal comma"
+    },
+    {
+      "id": "VAL-17",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydration for 24.0 hours",
+      "expectBlocking": [
+        "STALE_OR_WRONG_VALUE"
+      ],
+      "expectWarnings": [],
+      "why": "must be written as the exact integer"
+    },
+    {
+      "id": "DIS-01",
+      "marketId": "GB",
+      "channelId": "product_page",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydrates for 24 hours.",
+      "expectBlocking": [
+        "MISSING_DISCLAIMER"
+      ],
+      "expectWarnings": [],
+      "why": "no footnote"
+    },
+    {
+      "id": "DIS-02",
+      "marketId": "GB",
+      "channelId": "product_page",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydrates for 24 hours. *Instrumental test.",
+      "expectBlocking": [
+        "MISSING_FOOTNOTE_MARKER"
+      ],
+      "expectWarnings": [],
+      "why": "footnote with no marker"
+    },
+    {
+      "id": "DIS-03",
+      "marketId": "GB",
+      "channelId": "product_page",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydrates for 24 hours*.",
+      "expectBlocking": [
+        "MISSING_DISCLAIMER"
+      ],
+      "expectWarnings": [],
+      "why": "marker with no footnote"
+    },
+    {
+      "id": "DIS-04",
+      "marketId": "US",
+      "channelId": "product_page",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydrates for 24 hours*. *Instrumental test.",
+      "expectBlocking": [
+        "MISSING_DISCLAIMER"
+      ],
+      "expectWarnings": [],
+      "why": "wrong market footnote"
+    },
+    {
+      "id": "DIS-05",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "24-hour hydration",
+      "expectBlocking": [],
+      "expectWarnings": [],
+      "why": "channel exempt"
+    },
+    {
+      "id": "DIS-06",
+      "marketId": "DE",
+      "channelId": "product_page",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Aube Dew Cream versorgt die Haut 24 Stunden lang mit Feuchtigkeit. Leichte Textur für jeden Tag.",
+      "expectBlocking": [
+        "MISSING_DISCLAIMER"
+      ],
+      "expectWarnings": [],
+      "why": "demo agency draft"
+    },
+    {
+      "id": "DIS-07",
+      "marketId": "GB",
+      "channelId": "social_post",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Meet your new morning step.",
+      "expectBlocking": [],
+      "expectWarnings": [
+        "CLAIM_NOT_MENTIONED"
+      ],
+      "why": "claim dropped: reviewer must notice"
+    },
+    {
+      "id": "BAN-01",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "All-Day comfort, 24 hours",
+      "expectBlocking": [
+        "BANNED_PHRASE"
+      ],
+      "expectWarnings": [],
+      "why": "case and hyphen variant"
+    },
+    {
+      "id": "BAN-02",
+      "marketId": "FR",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Confort toute  la journée : 24 h",
+      "expectBlocking": [
+        "BANNED_PHRASE"
+      ],
+      "expectWarnings": [],
+      "why": "double space"
+    },
+    {
+      "id": "BAN-03",
+      "marketId": "ES",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Piel segura: 24 horas",
+      "expectBlocking": [],
+      "expectWarnings": [],
+      "why": "'segura' must not match banned 'cura'"
+    },
+    {
+      "id": "BAN-04",
+      "marketId": "DE",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Klinisch bewiesen: 24 Stunden",
+      "expectBlocking": [
+        "BANNED_PHRASE"
+      ],
+      "expectWarnings": [],
+      "why": "case"
+    },
+    {
+      "id": "BAN-05",
+      "marketId": "US",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Care 24/7",
+      "expectBlocking": [
+        "BANNED_PHRASE"
+      ],
+      "expectWarnings": [
+        "CLAIM_NOT_MENTIONED"
+      ],
+      "why": "slash phrase"
+    },
+    {
+      "id": "BAN-06",
+      "marketId": "FR",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "24 h : confort prouvé cliniquement",
+      "expectBlocking": [
+        "BANNED_PHRASE"
+      ],
+      "expectWarnings": [],
+      "why": "decomposed accent still matches"
+    },
+    {
+      "id": "BAN-07",
+      "marketId": "FR",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "24 h : confort cliniquement prouvé",
+      "expectBlocking": [
+        "BANNED_PHRASE"
+      ],
+      "expectWarnings": [],
+      "why": "usual French word order"
+    },
+    {
+      "id": "LEN-01",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "24 hours aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "expectBlocking": [],
+      "expectWarnings": [],
+      "why": "exactly 60"
+    },
+    {
+      "id": "LEN-02",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "24 hours aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "expectBlocking": [
+        "TOO_LONG"
+      ],
+      "expectWarnings": [],
+      "why": "61"
+    },
+    {
+      "id": "LEN-03",
+      "marketId": "FR",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "24 h ééééééééééééééééééééééééééééééééééééééééééééééééééééééé",
+      "expectBlocking": [],
+      "expectWarnings": [],
+      "why": "60 graphemes after NFC, decomposed input"
+    },
+    {
+      "id": "LEN-04",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "24 hours aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa👩‍🔬",
+      "expectBlocking": [],
+      "expectWarnings": [],
+      "why": "emoji sequence counts as 1: total 60"
+    },
+    {
+      "id": "FMT-01",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "<b>24 hours</b>",
+      "expectBlocking": [
+        "FORBIDDEN_MARKUP"
+      ],
+      "expectWarnings": [],
+      "why": "HTML"
+    },
+    {
+      "id": "FMT-02",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "24 hours: https://example.com",
+      "expectBlocking": [
+        "FORBIDDEN_MARKUP"
+      ],
+      "expectWarnings": [],
+      "why": "URL"
+    },
+    {
+      "id": "MUL-01",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "<i>All day</i> 48 hours xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "expectBlocking": [
+        "BANNED_PHRASE",
+        "FORBIDDEN_MARKUP",
+        "STALE_OR_WRONG_VALUE",
+        "TOO_LONG"
+      ],
+      "expectWarnings": [],
+      "why": "all failures reported together"
+    },
+    {
+      "id": "KL-01",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "Hydration for two days",
+      "expectBlocking": [],
+      "expectWarnings": [
+        "CLAIM_NOT_MENTIONED"
+      ],
+      "why": "KNOWN LIMIT: spelled-out duration is not blocked"
+    },
+    {
+      "id": "KL-02",
+      "marketId": "GB",
+      "channelId": "email_subject",
+      "claimValue": 24,
+      "assetWasAffected": true,
+      "text": "24 hours that erase wrinkles",
+      "expectBlocking": [],
+      "expectWarnings": [],
+      "why": "KNOWN LIMIT: meaning is not checked"
+    }
+  ]
+}

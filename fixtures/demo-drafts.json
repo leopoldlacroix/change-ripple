@@ -1,0 +1,32 @@
+{
+  "note": "Reference drafts for tests and rehearsal. NEVER loaded by the server at runtime.",
+  "goodDraftsAt24": {
+    "FR-product_page": "Aube Dew Cream hydrate la peau pendant 24 h*. Une texture légère pour le quotidien. *Test instrumental.",
+    "FR-social_post": "Votre peau, hydratée pendant 24 h* avec Aube Dew Cream. *Test instrumental.",
+    "FR-marketplace_bullet": "Hydratation 24 h* à la texture légère. *Test instrumental.",
+    "DE-product_page": "Aube Dew Cream spendet der Haut 24 Stunden* Feuchtigkeit. Leichte Textur für jeden Tag. *Instrumenteller Test.",
+    "DE-email_subject": "24-Stunden-Feuchtigkeit für deine Haut",
+    "DE-marketplace_bullet": "24-Stunden-Feuchtigkeit* mit leichter Textur. *Instrumenteller Test.",
+    "ES-product_page": "Aube Dew Cream hidrata la piel durante 24 horas*. Textura ligera para cada día. *Test instrumental.",
+    "ES-social_post": "24 h* de hidratación para tu piel con Aube Dew Cream. *Test instrumental.",
+    "ES-email_subject": "Tu piel hidratada durante 24 horas",
+    "ES-marketplace_bullet": "Hidratación 24 h* con textura ligera. *Test instrumental.",
+    "IT-product_page": "Aube Dew Cream idrata la pelle per 24 ore*. Una texture leggera per ogni giorno. *Test strumentale.",
+    "IT-social_post": "24 ore* di idratazione con Aube Dew Cream. *Test strumentale.",
+    "IT-marketplace_bullet": "Idratazione 24 h* dalla texture leggera. *Test strumentale.",
+    "GB-product_page": "Aube Dew Cream hydrates skin for 24 hours*. A lightweight texture for every day. *Instrumental test.",
+    "GB-email_subject": "24-hour hydration for your skin",
+    "GB-marketplace_bullet": "24-hour hydration* with a lightweight feel. *Instrumental test.",
+    "US-product_page": "Aube Dew Cream hydrates skin for 24 hours*. A lightweight feel for every day. *Based on instrumental testing.",
+    "US-social_post": "Meet your 24hr* hydration step: Aube Dew Cream. *Based on instrumental testing.",
+    "US-email_subject": "Hydration that lasts 24 hours",
+    "US-marketplace_bullet": "Hydrates for 24 hrs* with a lightweight feel. *Based on instrumental testing."
+  },
+  "badAgencyDraft": {
+    "assetId": "DE-product_page",
+    "text": "Aube Dew Cream versorgt die Haut 24 Stunden lang mit Feuchtigkeit. Leichte Textur für jeden Tag.",
+    "expectedBlocking": [
+      "MISSING_DISCLAIMER"
+    ]
+  }
+}
