@@ -19,3 +19,4 @@ playwright/.cache/
 .vscode/
 *.tsbuildinfo
 worker-configuration.d.ts
+src/server/board.generated.ts

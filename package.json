@@ -8,12 +8,16 @@
     "node": ">=20"
   },
   "scripts": {
+    "pretest": "npm run build:ui",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:prod": "vitest run tests/prod",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
+    "build:ui": "node scripts/build-ui.mjs",
+    "predev": "npm run build:ui",
     "dev": "wrangler dev",
+    "predeploy": "npm run build:ui",
     "deploy": "wrangler deploy"
   },
   "dependencies": {

@@ -2,3 +2,13 @@ name = "change-ripple"
 main = "src/server/index.ts"
 compatibility_date = "2026-11-25"
 compatibility_flags = ["nodejs_compat"]
+
+[durable_objects]
+bindings = [
+  { name = "WORKSPACES", class_name = "WorkspaceDO" },
+  { name = "LIMITER", class_name = "LimiterDO" },
+]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["WorkspaceDO", "LimiterDO"]

@@ -1,0 +1,53 @@
+:root {
+  color-scheme: light dark;
+  --cr-accent: var(--color-text-success, #2f6f5e);
+  --cr-bg: var(--color-background-primary, #f7f4ee);
+  --cr-text: var(--color-text-primary, #1b1b1b);
+  --cr-muted: var(--color-text-secondary, #5c5c5c);
+  --cr-border: var(--color-border-primary, #d7d0c4);
+  --cr-danger: var(--color-text-danger, #9b2c2c);
+  --cr-pad: env(safe-area-inset-bottom, 0px);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  color: var(--cr-text);
+  background: var(--cr-bg);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { padding: 0.75rem; padding-bottom: calc(0.75rem + var(--cr-pad)); }
+#app { max-width: 100%; }
+button, textarea, input {
+  font: inherit;
+  min-height: 44px;
+  min-width: 44px;
+}
+button {
+  border: 1px solid var(--cr-border);
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  background: var(--color-background-secondary, #fff);
+  color: inherit;
+}
+button.primary { background: var(--cr-accent); color: #fff; border-color: transparent; }
+button:disabled { opacity: 0.55; }
+button:focus-visible, textarea:focus-visible, a:focus-visible {
+  outline: 3px solid var(--color-ring-primary, var(--cr-accent));
+  outline-offset: 2px;
+}
+.muted { color: var(--cr-muted); font-size: 0.9rem; }
+.warn { color: var(--cr-danger); }
+.grid { width: 100%; border-collapse: collapse; }
+.grid th, .grid td { border: 1px solid var(--cr-border); padding: 0.4rem; text-align: left; vertical-align: top; }
+.cell-scan { font-weight: 600; }
+.headline { font-size: 1.15rem; margin: 0 0 0.5rem; }
+.status-strip { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0; }
+.nav { display: flex; gap: 0.5rem; align-items: center; }
+.release-state { font-size: 1.6rem; font-weight: 700; margin: 0 0 0.5rem; }
+.diff-old, .diff-new { white-space: pre-wrap; margin: 0.35rem 0; }
+.edit-link { background: none; border: none; text-decoration: underline; min-width: auto; padding: 0.25rem; color: var(--cr-accent); }
+textarea { width: 100%; min-height: 6rem; }
+.banner { padding: 0.5rem; border-radius: 8px; background: var(--color-background-warning, #f3e6c4); margin-bottom: 0.5rem; }
+@media (max-width: 520px) {
+  .grid, .grid thead, .grid tbody, .grid th, .grid td, .grid tr { display: block; }
+  .grid tr { margin-bottom: 0.75rem; }
+}

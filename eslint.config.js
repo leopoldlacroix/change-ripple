@@ -11,6 +11,8 @@ export default tseslint.config(
       "playwright-report/**",
       "test-results/**",
       "coverage/**",
+      "scripts/**",
+      "src/server/board.generated.ts",
     ],
   },
   eslint.configs.recommended,

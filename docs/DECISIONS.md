@@ -2,8 +2,13 @@
 
 ## 2026-11-25 — Product repo vs private input
 - **Problem:** A GitHub remote and a local git root existed on a private input folder that must stay outside this project.
-- **Choice:** Create this project as a new sibling folder with its own git history. Do not copy or commit that input folder.
+- **Choice:** Keep this product as its own git history. Do not copy or commit the private input into it.
 - **Why:** The product repo should contain only the app, public docs, sample data and fixtures.
+
+## 2026-11-25 — Nested folder on disk
+- **Problem:** The human wanted the product and the private input in one place, with git only on the product.
+- **Choice:** Nest this folder inside the private input directory. Remove git from the parent. Git lives only here. Parent files are still not part of this repo.
+- **Why:** Clearer local layout. Nested git still keeps the public history clean.
 
 ## 2026-11-25 — Package versions
 - **Problem:** Tooling versions needed a re-check against the current npm registry and Claude connector docs.

@@ -5,5 +5,7 @@ export default defineConfig({
     include: ["tests/**/*.test.ts"],
     exclude: ["tests/ui/**", "tests/prod/**"],
     testTimeout: 30_000,
+    hookTimeout: 60_000,
+    fileParallelism: false,
   },
 });
