@@ -6,15 +6,15 @@
 - **Categories (1-5):** not submitted to a directory
 - **Slug:** change-ripple-demo
 - **Icon:** docs/assets/icon.svg
-- **Documentation:** /docs on the Worker (not deployed yet)
-- **Privacy:** /privacy on the Worker (not deployed yet)
+- **Documentation:** https://change-ripple.leola.workers.dev/docs
+- **Privacy:** https://change-ripple.leola.workers.dev/privacy
 - **Support:** https://github.com/leopoldlacroix/change-ripple/issues
 - **Company / contact:** https://github.com/leopoldlacroix/change-ripple
 - **Use cases:** assess a claim change; redraft and check market copy; review and track release readiness.
 - **Prerequisites:** a Claude plan that can add this custom connector; interactive display support for review.
 - **Reads/writes:** both, only in a demo sandbox.
 - **Authentication:** none. A production version acting on company data would need OAuth 2.0.
-- **MCP server URL:** not deployed yet
+- **MCP server URL:** https://change-ripple.leola.workers.dev/mcp
 - **Data handling:** own server on Cloudflare; sample data plus text saved to the sandbox; deleted after 7 days; no health data; no sponsored content; the server calls no AI model.
 - **External links:** none.
 - **Reviewer test setup:** no account. Add the URL and run the three prompts; the first creates a populated sandbox.

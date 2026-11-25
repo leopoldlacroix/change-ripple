@@ -1,6 +1,6 @@
 # Add Change Ripple to Claude
 
-**URL:** not deployed yet (after `npm run deploy`, use `https://<worker>.workers.dev/mcp`). No sign-in or API key. Fictional demo data only.
+**URL:** https://change-ripple.leola.workers.dev/mcp · No sign-in or API key. Fictional demo data only.
 
 Developers who want to run it on a laptop: [DEV.md](DEV.md). Claude cannot use `localhost`.
 

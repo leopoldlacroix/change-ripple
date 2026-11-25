@@ -5,7 +5,7 @@
 **Job:** when a product claim changes, find the affected copy, redraft it in Claude, and get each version reviewed before release.
 **Why it is worth their time:** Claude can already rewrite copy. Change Ripple keeps the list of what must change (including untagged mentions), runs the same rule checks every time, keeps status between conversations, and ties each decision to the exact text reviewed. Time saved has not been measured.
 
-**Connector URL:** not deployed yet. · **Repo:** https://github.com/leopoldlacroix/change-ripple · [Install (Claude)](docs/INSTALL.md) · [Run locally](docs/DEV.md) · [Three prompts](docs/DEMO-PROMPTS.md) · [Listing](docs/LISTING.md)
+**Connector URL:** https://change-ripple.leola.workers.dev/mcp · **Repo:** https://github.com/leopoldlacroix/change-ripple · [Install (Claude)](docs/INSTALL.md) · [Run locally](docs/DEV.md) · [Three prompts](docs/DEMO-PROMPTS.md) · [Listing](docs/LISTING.md)
 
 ## Where the human stays
 
@@ -60,6 +60,6 @@ Use the printed `*.workers.dev` origin plus `/mcp` as the connector URL. Details
 
 ## How this was built
 
-Time spent: not measured as a single clock. AI agents: Cursor agents wrote most of the implementation and docs. Verified by a person: local Worker pages and a live MCP tool path (preview → bad draft → approve one → `BLOCKED`). Not verified: production deploy, Claude iframe / tool visibility / `_meta`, Playwright board harness, confidential-term scan.
+Time spent: not measured as a single clock. AI agents: Cursor agents wrote most of the implementation and docs. Verified: local Worker plus production `https://change-ripple.leola.workers.dev` (healthz, static pages, MCP initialize and tools/list). Not verified: full production scenario, Claude iframe / tool visibility / `_meta`, Playwright board harness, confidential-term scan.
 
 All brand data is fictional. No affiliation with any real company using a similar name.

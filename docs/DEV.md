@@ -76,8 +76,8 @@ Localhost cannot be a Claude custom connector. Claude needs a public HTTPS URL o
 1. A Cloudflare account (free plan is enough for this demo).
 2. In this folder: `npx wrangler login` (browser). Do not paste a token into chat or into the repo.
 3. `npm run deploy`
-4. Wrangler prints a `*.workers.dev` URL. The MCP endpoint is that origin plus `/mcp`.
-5. Put that URL in the README “Connector URL” line and in [INSTALL.md](INSTALL.md). Add it in Claude: Customize → Connectors → Add custom connector, no sign-in.
+4. This deployment: https://change-ripple.leola.workers.dev — MCP is `/mcp`.
+5. Add that MCP URL in Claude: Customize → Connectors → Add custom connector, no sign-in. After changing the Worker, run `npm run deploy` again.
 
 Workers on the free plan: Durable Objects and SQLite are required (already in `wrangler.toml`). Quota limits apply; the demo also caps 500 new workspaces per UTC day.
 

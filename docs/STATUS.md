@@ -15,25 +15,22 @@ Updated: 2026-11-25.
 - Local tests: 75 passing (unit, hygiene, MCP integration scenario, security). Briefing resource and initialize-copy checks included.
 - Typecheck and lint pass. UI bundled (~674 KB, under 900 KB).
 - Live MCP smoke (Cursor agent as client, no iframe): start → preview 20/24 → open → bad DE draft `MISSING_DISCLAIMER` → good draft `pending_review` → approve one → release `BLOCKED`. Workspace `ws_06BHIQLjIivr5085x748UA`.
+- Production Worker: https://change-ripple.leola.workers.dev — healthz 200, `/` `/docs` `/privacy` `/terms` `/icon.svg` 200, MCP initialize + tools/list (9 tools). Connector: `https://change-ripple.leola.workers.dev/mcp`.
 
 ## Next
-- Enable the **change-ripple** MCP server in Cursor Settings if tools are not listed, then run DEMO-PROMPTS with the agent.
+- Human: add https://change-ripple.leola.workers.dev/mcp as a Claude custom connector (no sign-in), enable it in a chat, run DEMO-PROMPTS (H1).
 - Playwright UI harness (T4) — NOT RUN.
-- Cloudflare login and deploy, then in-Claude check (H1).
-- Human: invite collaborators (repo is private) or make it public; `npx wrangler login` then `npm run deploy`.
+- Invite collaborators (repo is private) or make it public.
 
 ## Blocked
-- Deploy needs `npx wrangler login` (or `CLOUDFLARE_API_TOKEN` in the environment). Not needed for local tests.
 - Claude rendering, tool visibility, and `_meta` handling: NOT VERIFIED until H1.
 
 ## Human action needed
-1. Local check: `cd change-ripple && npm test` and `npm run dev`, then exercise `/mcp` (see README).
-2. When ready to deploy: `npx wrangler login` in a terminal on this machine. Do not paste a token into chat.
-3. Create a private GitHub repo `change-ripple` for `origin`.
-4. Claude custom-connector slot for H1 after a public URL exists.
+1. In Claude: Customize → Connectors → Add custom connector → `https://change-ripple.leola.workers.dev/mcp`, no sign-in. Enable it in a new chat. Paste prompt 1 from `docs/DEMO-PROMPTS.md`.
+2. Report whether the board renders, whether decision tools are hidden from the model, and whether `_meta.reviewToken` stays off-screen.
 
 ## Not verified
-- Production deploy.
+- Full production scenario replay (T5) beyond healthz, static pages, and MCP initialize.
 - Behaviour inside Claude (tool visibility, `_meta`, UI rendering).
 - Playwright board harness (T4).
 - Confidential-term scan (CONFIDENTIAL_TERMS_FILE unset: SKIPPED).
