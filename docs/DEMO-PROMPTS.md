@@ -1,5 +1,7 @@
 # Three prompts (run in one chat, in order)
 
+Agents: narrate each step with [WALKTHROUGH.md](WALKTHROUGH.md). Reuse one workspace. Do not open a change in prompt 1.
+
 ## 1. See the damage before touching anything
 > Using Change Ripple, start a Maison Aube demo. Our hydration claim is moving from 48 to 24 hours. Show me what is affected, but don't change anything yet.
 

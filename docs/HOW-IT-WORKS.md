@@ -183,9 +183,11 @@ Copy `_meta.reviewToken` (not inside `structuredContent`). Pick the DE product p
 
 Wrong token → `INVALID_REVIEW_TOKEN`. Reject with no `reason` → `REASON_REQUIRED`. `get_release_status` should be `BLOCKED` until the other 19 affected assets are approved.
 
-### 5. Cursor (optional)
+### 5. Cursor
 
-Add an MCP server of type HTTP / URL `http://127.0.0.1:8787/mcp` while `npm run dev` is up. You can then ask this agent to call the same tools. You will see text results, not Claude’s iframe.
+This repo already declares the server in `.cursor/mcp.json` (`http://127.0.0.1:8787/mcp`). Keep `npm run dev` running. Enable **change-ripple** in Cursor Settings → MCP if the tools do not appear.
+
+Ask the agent to run the three prompts in [DEMO-PROMPTS.md](DEMO-PROMPTS.md). The agent should follow [WALKTHROUGH.md](WALKTHROUGH.md): call the tools, then explain in plain language what changed and what the user is meant to notice. You will see text results, not Claude’s iframe.
 
 ## What a local client cannot prove
 

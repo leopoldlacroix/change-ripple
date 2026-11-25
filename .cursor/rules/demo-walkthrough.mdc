@@ -1,0 +1,14 @@
+---
+description: How to demo Change Ripple tools and explain each step to the user
+alwaysApply: true
+---
+
+# Change Ripple demo
+
+Keep `npm run dev` running (`http://127.0.0.1:8787/mcp`). Reuse one `workspaceId`; do not call `start_demo_workspace` unless the user wants a fresh sandbox.
+
+When the user pastes a demo prompt or asks to try the connector, follow `docs/WALKTHROUGH.md`: call the listed tools, then **narrate in plain language** (counts, asset names, what changed vs what did not). Do not dump raw JSON. Never claim legal compliance.
+
+Cursor lists `submit_decision` and `save_reviewer_edit`. Use them here only when the user is testing the board flow. In Claude they are meant to be app-only.
+
+After meaningful work, commit in `change-ripple/` (this folder is the only git repo).
